@@ -1,0 +1,10 @@
+var x = 10;
+var y = 20;
+
+action mov(xv,yv);
+    print("x")
+end
+
+action b(xv,yv);
+
+end
