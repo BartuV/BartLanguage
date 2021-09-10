@@ -14,23 +14,19 @@ class Parser:
             token_value = self.tokens[self.token_index][1]
 
             if token_type == "FUNCTION_STATMENT" and token_value == "action":
-                if self.functionnums < 1:
-                    self.functionnums += 1
-                    ind = self.tokens.index(["FUNCTION_STATMENT",token_value])
-                    name = self.tokens[ind+1][1]
-                    self.tokens[ind][1] = name
-                    actionobj = Function(self.tokens)
-                    actionobj.run()
-                else:
-                    return
+                self.functionnums += 1
+                ind = self.tokens.index(["FUNCTION_STATMENT",token_value])
+                name = self.tokens[ind+1][1]
+                self.tokens[ind][1] = name
+                actionobj = Function(self.tokens)
+                actionobj.run()
 
             if token_type == "PRINT_STATMENT":
                 print("print")
                 if token_value in self.tranpiled_code.split():
                     index = self.tranpiled_code.split().index(token_value)
                     print(self.tranpiled_code.split()[index + 2])
-                else:
-                    print(token_value)
+                
 
             if token_type == "VAR_DECLERATION" and token_value == "var":
                 self.parse_variable_decleration(self.tokens[self.token_index:len(self.tokens)])

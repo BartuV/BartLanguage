@@ -2,8 +2,10 @@ var x = 10;
 var y = 20;
 
 action mov(xv,yv);
-    print("x")
+
 end
+
+print(10)
 
 action b(xv,yv);
 

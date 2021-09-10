@@ -37,6 +37,7 @@ class Lexer:
             if word[len(word)-1] == ";":
                 tokens.append(["STATMENT_END",";"])
             if word[0:6] == "print(" and word[len(word)-2]==")":
+                print("print")
                 tokens.append(["PRINT_STATMENT",word[6:len(word)-2]])
             source_index += 1
         return tokens
